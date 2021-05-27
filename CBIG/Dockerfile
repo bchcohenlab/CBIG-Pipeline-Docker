@@ -229,7 +229,8 @@ RUN /opt/spm12-r7219/run_spm12.sh /opt/matlabmcr-2010a/v713 quit
 RUN sed -i '$iexport SPMMCRCMD=\"/opt/spm12-r7219/run_spm12.sh /opt/matlabmcr-2010a/v713 script\"' $ND_ENTRYPOINT
 
 RUN mkdir -p /repos \
-    && git clone https://github.com/bchcohenlab/CBIG.git /repos
+    && git clone https://github.com/bchcohenlab/CBIG.git /repos \
+    && git clone https://github.com/bchcohenlab/BIDS_to_CBIG_fMRI_Preproc2016.git
 
 RUN echo '{ \
     \n  "pkg_manager": "apt", \
