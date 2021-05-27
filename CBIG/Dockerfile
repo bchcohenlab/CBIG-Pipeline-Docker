@@ -10,8 +10,8 @@
 
 FROM debian:stretch
 
-# ENV http_proxy 'http://proxy.tch.harvard.edu:3128'
-# ENV https_proxy 'http://proxy.tch.harvard.edu:3128'
+ENV http_proxy 'http://proxy.tch.harvard.edu:3128'
+ENV https_proxy 'http://proxy.tch.harvard.edu:3128'
 
 USER root
 
@@ -27,6 +27,7 @@ Run apt-get install -y -q --no-install-recommends \
            bzip2 \
            ca-certificates \
            curl \
+           git \
            locales \
            unzip
 Run apt-get clean \
@@ -87,7 +88,7 @@ RUN apt-get update -qq \
     && ldconfig \
     && echo "Downloading AFNI ..." \
     && mkdir -p /opt/afni-latest \
-    && curl -fsSL --retry 5 https://afni.nimh.nih.gov/pub/dist/tgz/linux_openmp_64.tgz \
+    && curl -fsSL --retry 5 http://afni.nimh.nih.gov/pub/dist/tgz/linux_openmp_64.tgz \
     | tar -xz -C /opt/afni-latest --strip-components 1
 
 ENV FSLDIR="/opt/fsl-5.0.10" \
@@ -226,6 +227,9 @@ RUN curl -fsSL --retry 5 -o /tmp/spm12.zip https://www.fil.ion.ucl.ac.uk/spm/dow
 RUN rm -rf /tmp/spm*
 RUN /opt/spm12-r7219/run_spm12.sh /opt/matlabmcr-2010a/v713 quit
 RUN sed -i '$iexport SPMMCRCMD=\"/opt/spm12-r7219/run_spm12.sh /opt/matlabmcr-2010a/v713 script\"' $ND_ENTRYPOINT
+
+RUN mkdir -p /repos \
+    && git clone https://github.com/bchcohenlab/CBIG.git /repos
 
 RUN echo '{ \
     \n  "pkg_manager": "apt", \
