@@ -173,23 +173,23 @@ RUN apt-get update -qq \
 
 ENV LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/lib/x86_64-linux-gnu:/opt/matlabmcr-2018a/v94/runtime/glnxa64:/opt/matlabmcr-2018a/v94/bin/glnxa64:/opt/matlabmcr-2018a/v94/sys/os/glnxa64:/opt/matlabmcr-2018a/v94/extern/bin/glnxa64" \
     MATLABCMD="/opt/matlabmcr-2018a/v94/toolbox/matlab"
-# RUN export TMPDIR="$(mktemp -d)" \
-  # && apt-get update -qq \
-  # && apt-get install -y -q --no-install-recommends \
-          # bc \
-          # libncurses5 \
-          # libxext6 \
-          # libxmu6 \
-          # libxpm-dev \
-          # libxt6 \
-  # && apt-get clean \
-  # && rm -rf /var/lib/apt/lists/* \
-  # && echo "Downloading MATLAB Compiler Runtime ..." \
-  # && curl -fsSL --retry 5 -o "$TMPDIR/mcr.zip" https://ssd.mathworks.com/supportfiles/downloads/R2018a/deployment_files/R2018a/installers/glnxa64/MCR_R2018a_glnxa64_installer.zip \
-  # && unzip -q "$TMPDIR/mcr.zip" -d "$TMPDIR/mcrtmp" \
-  # && "$TMPDIR/mcrtmp/install" -destinationFolder /opt/matlabmcr-2018a -mode silent -agreeToLicense yes \
-  # && rm -rf "$TMPDIR" \
-  # && unset TMPDIR
+RUN export TMPDIR="$(mktemp -d)" \
+    && apt-get update -qq \
+    && apt-get install -y -q --no-install-recommends \
+            bc \
+            libncurses5 \
+            libxext6 \
+            libxmu6 \
+            libxpm-dev \
+            libxt6 \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/* \
+    && echo "Downloading MATLAB Compiler Runtime ..." \
+    && curl -fsSL --retry 5 -o "$TMPDIR/mcr.zip" https://ssd.mathworks.com/supportfiles/downloads/R2018a/deployment_files/R2018a/installers/glnxa64/MCR_R2018a_glnxa64_installer.zip \
+    && unzip -q "$TMPDIR/mcr.zip" -d "$TMPDIR/mcrtmp" \
+    && "$TMPDIR/mcrtmp/install" -destinationFolder /opt/matlabmcr-2018a -mode silent -agreeToLicense yes \
+    && rm -rf "$TMPDIR" \
+    && unset TMPDIR
 
 ENV FORCE_SPMMCR="1" \
     SPM_HTML_BROWSER="0" \
