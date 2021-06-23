@@ -28,6 +28,8 @@ Run apt-get install -y -q --no-install-recommends \
            ca-certificates \
            curl \
            git \
+           jq \
+           python \
            locales \
            unzip
 Run apt-get clean \
