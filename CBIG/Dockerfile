@@ -231,7 +231,16 @@ RUN export TMPDIR="$(mktemp -d)" \
 # RUN /opt/spm12-r7219/run_spm12.sh /opt/matlabmcr-2010a/v713 quit
 # RUN sed -i '$iexport SPMMCRCMD=\"/opt/spm12-r7219/run_spm12.sh /opt/matlabmcr-2010a/v713 script\"' $ND_ENTRYPOINT
 
-Run curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh
+RUN \
+  apt-get update && \
+  apt-get install -y sudo curl git && \
+  curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash && \
+  sudo apt-get install git-lfs=1.0.0 && \
+  mkdir -p /src
+
+WORKDIR /src
+
+CMD [ "/usr/bin/git" ]
 
 RUN mkdir -p /repos \
     && git clone --depth 1 --branch compiled-for-MCR https://github.com/bchcohenlab/CBIG.git CBIG_compiled-for-MCR \
