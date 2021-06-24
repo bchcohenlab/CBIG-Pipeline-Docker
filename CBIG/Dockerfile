@@ -231,6 +231,8 @@ RUN export TMPDIR="$(mktemp -d)" \
 # RUN /opt/spm12-r7219/run_spm12.sh /opt/matlabmcr-2010a/v713 quit
 # RUN sed -i '$iexport SPMMCRCMD=\"/opt/spm12-r7219/run_spm12.sh /opt/matlabmcr-2010a/v713 script\"' $ND_ENTRYPOINT
 
+Run brew install git-lfs
+
 RUN mkdir -p /repos \
     && git clone --depth 1 --branch compiled-for-MCR https://github.com/bchcohenlab/CBIG.git CBIG_compiled-for-MCR \
     && git clone https://github.com/bchcohenlab/BIDS_to_CBIG_fMRI_Preproc2016.git
