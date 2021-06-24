@@ -232,8 +232,7 @@ RUN export TMPDIR="$(mktemp -d)" \
 # RUN /opt/spm12-r7219/run_spm12.sh /opt/matlabmcr-2010a/v713 quit
 # RUN sed -i '$iexport SPMMCRCMD=\"/opt/spm12-r7219/run_spm12.sh /opt/matlabmcr-2010a/v713 script\"' $ND_ENTRYPOINT
 
-RUN apt-get install git-lfs \
-    && apt-get clean \
+RUN curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash \
     && git lfs install
 
 RUN mkdir -p /repos \
