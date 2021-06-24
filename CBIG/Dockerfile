@@ -30,6 +30,7 @@ Run apt-get install -y -q --no-install-recommends \
            git \
            jq \
            python \
+           nano \
            locales \
            unzip
 Run apt-get clean \
