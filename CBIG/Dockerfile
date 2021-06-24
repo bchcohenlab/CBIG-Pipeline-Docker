@@ -238,7 +238,7 @@ Run mkdir -p /BIDS_input \
     && mkdir -p /freesurfer_input \
     && mkdir -p /output
 
-COPY /fileserver/caladan_ssd/opt/freesurfer_v6.0.0/license.txt /opt/freesurfer-6.0.0/license.txt
+COPY license.txt /opt/freesurfer-6.0.0/license.txt
 
 RUN echo '{ \
     \n  "pkg_manager": "apt", \
