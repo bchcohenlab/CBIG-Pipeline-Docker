@@ -31,6 +31,7 @@ Run apt-get install -y -q --no-install-recommends \
            jq \
            python \
            nano \
+           gnupg \
            locales \
            unzip
 Run apt-get clean \
