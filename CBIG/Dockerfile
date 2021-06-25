@@ -244,8 +244,9 @@ RUN mkdir -p /BIDS_input \
     && mkdir -p /freesurfer_input \
     && mkdir -p /output \
     && mkdir -p /extra_files
+    && mkdir -p /workbench
 
-RUN chmod +x /CBIG_compiled-for-MCR/setup_CBIG.sh 
+RUN chmod +x /CBIG_compiled-for-MCR/setup_CBIG.sh
     # && /CBIG_compiled-for-MCR/setup_CBIG.sh
 
 COPY license.txt /opt/freesurfer-6.0.0/license.txt
