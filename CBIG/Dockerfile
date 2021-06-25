@@ -244,7 +244,7 @@ RUN mkdir -p /BIDS_input \
     && mkdir -p /freesurfer_input \
     && mkdir -p /output \
     && mkdir -p /extra_files
-RUN /CBIG_compiled-for-MCR/setup.sh
+RUN /CBIG_compiled-for-MCR/setup_CBIG.sh
 
 COPY license.txt /opt/freesurfer-6.0.0/license.txt
 
