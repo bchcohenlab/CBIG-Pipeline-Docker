@@ -242,7 +242,7 @@ RUN mkdir -p /repos \
 
 RUN mkdir -p /BIDS_input \
     && mkdir -p /freesurfer_input \
-    && mkdir -p /output
+    && mkdir -p /output \
     && mkdir -p /extra_files
 RUN /CBIG_compiled-for-MCR/setup.sh
 
