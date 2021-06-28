@@ -249,7 +249,7 @@ RUN mkdir -p /BIDS_input \
 RUN chmod +x /CBIG_compiled-for-MCR/setup_CBIG.sh
     # && /CBIG_compiled-for-MCR/setup_CBIG.sh
 
-RUN alias python ="python3"
+RUN alias python ="python3" \
     && alias ll ="ls -lhtr"
 
 COPY license.txt /opt/freesurfer-6.0.0/license.txt
