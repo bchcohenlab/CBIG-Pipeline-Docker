@@ -29,7 +29,7 @@ Run apt-get install -y -q --no-install-recommends \
            curl \
            git \
            jq \
-           python \
+           python3 \
            nano \
            gnupg \
            locales \
@@ -248,6 +248,9 @@ RUN mkdir -p /BIDS_input \
 
 RUN chmod +x /CBIG_compiled-for-MCR/setup_CBIG.sh
     # && /CBIG_compiled-for-MCR/setup_CBIG.sh
+
+RUN alias python ="python3"
+    && alias ll ="ls -lhtr"
 
 COPY license.txt /opt/freesurfer-6.0.0/license.txt
 
