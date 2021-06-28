@@ -29,6 +29,7 @@ Run apt-get install -y -q --no-install-recommends \
            curl \
            git \
            jq \
+           python \
            python3 \
            nano \
            gnupg \
