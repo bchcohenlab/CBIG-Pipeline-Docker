@@ -30,7 +30,6 @@ Run apt-get install -y -q --no-install-recommends \
            git \
            jq \
            python \
-           python3 \
            nano \
            gnupg \
            locales \
@@ -170,11 +169,11 @@ RUN apt-get update -qq \
          --exclude='freesurfer/trctrain' \
     && sed -i '$isource "/opt/freesurfer-6.0.0/SetUpFreeSurfer.sh"' "$ND_ENTRYPOINT"
 
-# RUN apt-get update -qq \
-    # && apt-get install -y -q --no-install-recommends \
-           # connectome-workbench \
-    # && apt-get clean \
-    # && rm -rf /var/lib/apt/lists/*
+RUN apt-get update -qq \
+    && apt-get install -y -q --no-install-recommends \
+           connectome-workbench \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
 
 ENV LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/lib/x86_64-linux-gnu:/opt/matlabmcr-2021a/v94/runtime/glnxa64:/opt/matlabmcr-2021a/v94/bin/glnxa64:/opt/matlabmcr-2021a/v94/sys/os/glnxa64:/opt/matlabmcr-2021a/v94/extern/bin/glnxa64" \
     MATLABCMD="/opt/matlabmcr-2021a/v94/toolbox/matlab"
@@ -245,7 +244,7 @@ RUN mkdir -p /BIDS_input \
     && mkdir -p /freesurfer_input \
     && mkdir -p /output \
     && mkdir -p /extra_files \
-    && mkdir -p /workbench
+    && mkdir -p /workbench_test
 
 RUN chmod +x /CBIG_compiled-for-MCR/setup_CBIG.sh
     # && /CBIG_compiled-for-MCR/setup_CBIG.sh
