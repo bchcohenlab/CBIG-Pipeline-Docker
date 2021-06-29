@@ -170,9 +170,8 @@ RUN apt-get update -qq \
     && sed -i '$isource "/opt/freesurfer-6.0.0/SetUpFreeSurfer.sh"' "$ND_ENTRYPOINT"
 
 RUN echo "Downloading Connectome Workbench" \
-    && wget -q -P /opt/ https://www.humanconnectome.org/storage/app/media/workbench/workbench-linux64-v1.5.0.zip \
+    && wget -P /opt/ https://www.humanconnectome.org/storage/app/media/workbench/workbench-linux64-v1.5.0.zip \
     && unzip /opt/workbench-linux64-v1.5.0.zip \
-    && rm /opt/workbench-linux64-v1.5.0.zip \
     && apt-get update -qq \
     && apt-get install -y -q --no-install-recommends connectome-workbench \
     && apt-get clean \
