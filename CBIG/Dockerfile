@@ -176,7 +176,7 @@ RUN apt-get update -qq \
     # && rm -rf /var/lib/apt/lists/*
 
 RUN echo "Downloading Connectome Workbench" \
-    && curl -sSL --retry 5 -O /opt/ https://www.humanconnectome.org/storage/app/media/workbench/workbench-linux64-v1.5.0.zip
+    && wget -P /opt/ https://www.humanconnectome.org/storage/app/media/workbench/workbench-linux64-v1.5.0.zip
 
 ENV LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/lib/x86_64-linux-gnu:/opt/matlabmcr-2021a/v94/runtime/glnxa64:/opt/matlabmcr-2021a/v94/bin/glnxa64:/opt/matlabmcr-2021a/v94/sys/os/glnxa64:/opt/matlabmcr-2021a/v94/extern/bin/glnxa64" \
     MATLABCMD="/opt/matlabmcr-2021a/v94/toolbox/matlab"
