@@ -172,7 +172,7 @@ RUN apt-get update -qq \
 RUN echo "Downloading Connectome Workbench" \
     && wget -P /opt/ https://www.humanconnectome.org/storage/app/media/workbench/workbench-linux64-v1.5.0.zip \
     && unzip /opt/workbench-linux64-v1.5.0.zip \
-    && rm /opt/workbench-linux64-v1.5.0.zip
+    && rm /opt/workbench-linux64-v1.5.0.zip \
     && apt-get update -qq \
     && apt-get install -y -q --no-install-recommends connectome-workbench \
     && apt-get clean \
