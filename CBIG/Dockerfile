@@ -169,7 +169,7 @@ RUN apt-get update -qq \
     && sed -i '$isource "/opt/freesurfer-6.0.0/SetUpFreeSurfer.sh"' "$ND_ENTRYPOINT"
 
 RUN echo "Downloading Connectome Workbench" \
-    && wget -P /opt/ https://www.humanconnectome.org/storage/app/media/workbench/workbench-linux64-v1.5.0.zip \
+    && wget -q -P /opt/ https://www.humanconnectome.org/storage/app/media/workbench/workbench-linux64-v1.5.0.zip \
     && apt-get update -qq \
     && apt-get install -y -q --no-install-recommends connectome-workbench \
     && apt-get clean \
@@ -243,8 +243,7 @@ RUN mkdir -p /repos \
 RUN mkdir -p /BIDS_input \
     && mkdir -p /freesurfer_input \
     && mkdir -p /output \
-    && mkdir -p /extra_files \
-    && mkdir -p /workbench_test
+    && mkdir -p /extra_files
 
 RUN chmod +x /CBIG_compiled-for-MCR/setup_docker_CBIG.sh
     # && /CBIG_compiled-for-MCR/setup_CBIG.sh
