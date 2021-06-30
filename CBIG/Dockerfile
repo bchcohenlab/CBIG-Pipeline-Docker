@@ -158,6 +158,9 @@ RUN apt-get update -qq \
          --exclude='freesurfer/average/mult-comp-cor' \
          --exclude='freesurfer/lib/cuda' \
          --exclude='freesurfer/lib/qt' \
+         --exclude='freesurfer/subjects/V1_average' \
+         --exclude='freesurfer/subjects/bert' \
+         --exclude='freesurfer/subjects/cvs_avg35' \
          --exclude='freesurfer/subjects/cvs_avg35_inMNI152' \
          --exclude='freesurfer/subjects/fsaverage3' \
          --exclude='freesurfer/subjects/fsaverage4' \
