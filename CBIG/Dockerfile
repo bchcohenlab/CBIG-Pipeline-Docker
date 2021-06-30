@@ -164,8 +164,6 @@ RUN apt-get update -qq \
          --exclude='freesurfer/subjects/cvs_avg35_inMNI152' \
          --exclude='freesurfer/subjects/fsaverage3' \
          --exclude='freesurfer/subjects/fsaverage4' \
-         --exclude='freesurfer/subjects/fsaverage5' \
-         --exclude='freesurfer/subjects/fsaverage6' \
          --exclude='freesurfer/subjects/fsaverage_sym' \
          --exclude='freesurfer/trctrain' \
     && sed -i '$isource "/opt/freesurfer-6.0.0/SetUpFreeSurfer.sh"' "$ND_ENTRYPOINT"
