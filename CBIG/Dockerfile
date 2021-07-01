@@ -48,7 +48,7 @@ Run apt-get clean \
     &&   echo 'export USER="${USER:=`whoami`}"' >> "$ND_ENTRYPOINT" \
     &&   echo 'if [ -n "$1" ]; then "$@"; else /usr/bin/env bash; fi' >> "$ND_ENTRYPOINT"; \
     fi \
-    && chmod -R 777 /neurodocker && chmod a+s /neurodocker
+    && chmod -R 777 /neurodocker && chmod a+s /neurodocker \
     && sed -i '$isource /BIDS_to_CBIG_fMRI_Preproc2016/CBIG_2BP_docker_config.sh' $ND_ENTRYPOINT \
     && sed -i '$isource /BIDS_to_CBIG_fMRI_Preproc2016/BIDS_2BP_docker_CBIG_fMRI_preprocess.sh' $ND_ENTRYPOINT
 
