@@ -28,7 +28,7 @@ An example command to run CBIG in bash is
     sub-0002 \
     /freesurfer_input \
     /output \
-    /BIDS_to_CBIG_fMRI_Preproc2016/configs/testing.config. 
+    /BIDS_to_CBIG_fMRI_Preproc2016/configs/testing.config 
 
 The folders for the inputs and outputs are based on the docker run command up above
 To see the logs with this command you can go to `/output/CBIG_fMRI_preprocess_testing/sub-002/logs` or on the server with `/fileserver/gammu/projects/GSP_CBIG_docker/CBIG_fMRI_preprocess_testing/sub-0002/logs`
