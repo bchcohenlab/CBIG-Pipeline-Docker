@@ -52,7 +52,8 @@ Run apt-get clean \
     && sed -i '$isource /BIDS_to_CBIG_fMRI_Preproc2016/CBIG_2BP_docker_config.sh' $ND_ENTRYPOINT
 
 ENTRYPOINT ["/neurodocker/startup.sh"]
-CMD ["/BIDS_to_CBIG_fMRI_Preproc2016/BIDS_2BP_docker_CBIG_fMRI_preprocess.sh"]
+CMD [“/BIDS_to_CBIG_fMRI_Preproc2016/CBIG_2BP_docker_config.sh \
+&& /BIDS_to_CBIG_fMRI_Preproc2016/BIDS_2BP_docker_CBIG_fMRI_preprocess.sh”]
 
 ENV ANTSPATH="/opt/ants-2.2.0" \
     PATH="/opt/ants-2.2.0:$PATH"
