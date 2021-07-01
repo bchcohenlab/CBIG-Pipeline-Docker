@@ -46,11 +46,11 @@ Run apt-get clean \
          echo '#!/usr/bin/env bash' >> "$ND_ENTRYPOINT" \
     &&   echo 'set -e' >> "$ND_ENTRYPOINT" \
     &&   echo 'export USER="${USER:=`whoami`}"' >> "$ND_ENTRYPOINT" \
-    &&   echo '/BIDS_to_CBIG_fMRI_Preproc2016/CBIG_2BP_docker_config.sh' >> "$ND_ENTRYPOINT" \
-    &&   echo '/BIDS_to_CBIG_fMRI_Preproc2016/BIDS_2BP_docker_CBIG_fMRI_preprocess.sh' >> "$ND_ENTRYPOINT" \
     &&   echo 'if [ -n "$1" ]; then "$@"; else /usr/bin/env bash; fi' >> "$ND_ENTRYPOINT"; \
     fi \
     && chmod -R 777 /neurodocker && chmod a+s /neurodocker
+    && sed -i '$isource /BIDS_to_CBIG_fMRI_Preproc2016/CBIG_2BP_docker_config.sh' $ND_ENTRYPOINT \
+    && sed -i '$isource /BIDS_to_CBIG_fMRI_Preproc2016/BIDS_2BP_docker_CBIG_fMRI_preprocess.sh' $ND_ENTRYPOINT
 
 ENTRYPOINT ["/neurodocker/startup.sh"]
 
@@ -248,7 +248,7 @@ RUN mkdir -p /BIDS_input \
     && mkdir -p /extra_files
 
 RUN chmod +x /CBIG_compiled-for-MCR/setup_docker_CBIG.sh \
-    && /CBIG_compiled-for-MCR/setup_docker_CBIG.sh
+    && bash /CBIG_compiled-for-MCR/setup_docker_CBIG.sh
 
 COPY license.txt /opt/freesurfer-6.0.0/license.txt
 
