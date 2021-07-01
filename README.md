@@ -14,7 +14,7 @@ An example command to start the container in a bash is
 `docker run --name CBIG_docker --rm -i -t  -v /fileserver/gammu/collections/GSP:/BIDS_input -v /fileserver/gammu/projects/GSP/freesurfer_v4.5.0:/freesurfer_input -v /fileserver/gammu/projects/GSP_CBIG_docker:/output -v /fileserver/caladan_ssd/repos/CBIG_compiled/stable_projects/preprocessing/CBIG_fMRI_Preproc2016/utilities:/extra_files [docker image id/name] bash` 
 
 The image id/name would need be changed based on the image created
-Once the container is started, run the setup_docker_CBIG.sh which is in the /CBIG_compiled-for-MCR folder
+Once the container is started, run the `setup_docker_CBIG.sh` which is in the `/CBIG_compiled-for-MCR` folder
 The setup script, as of writing, changes the links for compiled m files and copies large compiled m files from caladan over to the docker image
 It also installs the directory for Connectome Workbench
 
