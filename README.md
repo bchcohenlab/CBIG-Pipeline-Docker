@@ -32,7 +32,9 @@ An example command to run CBIG in bash is
 
 The folders for the inputs and outputs are based on the docker run command up above
 To see the logs with this command you can go to `/output/CBIG_fMRI_preprocess_testing/sub-002/logs` or on the server with `/fileserver/gammu/projects/GSP_CBIG_docker/CBIG_fMRI_preprocess_testing/sub-0002/logs`
-To redo a subject, if you want to delete the entire CBIG_fMRI_preprocess_testing folder you must delete it through the bash, it won’t let you through the server
+To redo a subject, if you want to delete the entire CBIG_fMRI_preprocess_testing folder you must delete it through the bash, it won’t let you through the server.
+- One thing to note which is mentioned in the `Mfile_log.md` is that `-censor` needs to be added to the config file that you are using in `CBIG_preproc_regress`
+- An error will occur saying `CBIG_preproc_regress` failed
 
 ## **Things for the future**
 - Remove spm and the matlab for it if it is decided that ultimately it is not needed
