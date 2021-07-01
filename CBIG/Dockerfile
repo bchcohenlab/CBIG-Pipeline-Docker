@@ -246,7 +246,6 @@ RUN mkdir -p /BIDS_input \
     && mkdir -p /extra_files
 
 RUN chmod +x /CBIG_compiled-for-MCR/setup_docker_CBIG.sh
-    # && /CBIG_compiled-for-MCR/setup_CBIG.sh
 
 COPY license.txt /opt/freesurfer-6.0.0/license.txt
 
