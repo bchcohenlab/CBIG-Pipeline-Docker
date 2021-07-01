@@ -49,11 +49,10 @@ Run apt-get clean \
     &&   echo 'if [ -n "$1" ]; then "$@"; else /usr/bin/env bash; fi' >> "$ND_ENTRYPOINT"; \
     fi \
     && chmod -R 777 /neurodocker && chmod a+s /neurodocker \
-    && sed -i '$isource /BIDS_to_CBIG_fMRI_Preproc2016/CBIG_2BP_docker_config.sh' $ND_ENTRYPOINT \
-    && set CMD = /BIDS_to_CBIG_fMRI_Preproc2016/BIDS_2BP_docker_CBIG_fMRI_preprocess.sh \
-    && eval $CMD
+    && sed -i '$isource /BIDS_to_CBIG_fMRI_Preproc2016/CBIG_2BP_docker_config.sh' $ND_ENTRYPOINT
 
 ENTRYPOINT ["/neurodocker/startup.sh"]
+RUN CMD ["/BIDS_to_CBIG_fMRI_Preproc2016/BIDS_2BP_docker_CBIG_fMRI_preprocess.sh"]
 
 ENV ANTSPATH="/opt/ants-2.2.0" \
     PATH="/opt/ants-2.2.0:$PATH"
