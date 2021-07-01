@@ -11,7 +11,7 @@ In the dockerfile there is a command at the end to copy the freesurfer license i
 
 **Starting the container:**
 An example command to start the container in a bash is
-`docker run --name CBIG_docker --rm -i -t  -v /fileserver/gammu/collections/GSP:/BIDS_input -v /fileserver/gammu/projects/GSP/freesurfer_v4.5.0:/freesurfer_input -v /fileserver/gammu/projects/GSP_CBIG_docker:/output -v /fileserver/caladan_ssd/repos/CBIG_compiled/stable_projects/preprocessing/CBIG_fMRI_Preproc2016/utilities:/extra_files [docker image id/name] bash` 
+````docker run --name CBIG_docker --rm -i -t  -v /fileserver/gammu/collections/GSP:/BIDS_input -v /fileserver/gammu/projects/GSP/freesurfer_v4.5.0:/freesurfer_input -v /fileserver/gammu/projects/GSP_CBIG_docker:/output -v /fileserver/caladan_ssd/repos/CBIG_compiled/stable_projects/preprocessing/CBIG_fMRI_Preproc2016/utilities:/extra_files [docker image id/name] bash```` 
 
 The image id/name would need be changed based on the image created
 Once the container is started, run the `setup_docker_CBIG.sh` which is in the `/CBIG_compiled-for-MCR` folder
@@ -20,12 +20,12 @@ It also installs the directory for Connectome Workbench
 
 **Running CBIG:**
 An example command to run CBIG in bash is 
-`/BIDS_to_CBIG_fMRI_Preproc2016/BIDS_2BP_docker_CBIG_fMRI_preprocess.sh \
-/BIDS_input \
-sub-0002 \
-/freesurfer_input \
-/output \
-/BIDS_to_CBIG_fMRI_Preproc2016/configs/testing.config`
+    /BIDS_to_CBIG_fMRI_Preproc2016/BIDS_2BP_docker_CBIG_fMRI_preprocess.sh \
+    /BIDS_input \
+    sub-0002 \
+    /freesurfer_input \
+    /output \
+    /BIDS_to_CBIG_fMRI_Preproc2016/configs/testing.config. 
 
 The folders for the inputs and outputs are based on the docker run command up above
 To see the logs with this command you can go to `/output/CBIG_fMRI_preprocess_testing/sub-002/logs` or on the server with `/fileserver/gammu/projects/GSP_CBIG_docker/CBIG_fMRI_preprocess_testing/sub-0002/logs`
