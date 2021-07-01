@@ -5,7 +5,7 @@ The code underneath is the code that is changed in the script file to call that 
 The line numbers are for the scripts where the code was changed. This is based on the scripts found in github repo before the changes were put in place.
 The ln commands create a new link to the new executables in a different folder. Already put into the compile script.
 - Added -censor to testing.config under regression
-- Censor is in the regression step of the CONFIG FILE. If you don't want censoring increase the threshold
+- Censor is in the regression step. If you don't want censoring increase the threshold
 
 **CBIG/stable_projects/preprocessing/CBIG_fMRI_Preproc2016/CBIG_preproc_fslmcflirt_outliers.csh**
 *CBIG_preproc_plot_mcflirt_par.m and CBIG_preproc_DVARS_FDRMS_Correlation.m*: (CBIG/stable_projects/preprocessing/CBIG_fMRI_Preproc2016/utilities/) Line 202 
