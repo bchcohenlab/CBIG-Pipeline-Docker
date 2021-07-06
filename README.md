@@ -7,7 +7,7 @@ A full license for freesurfer is needed and must be put in the dockerfile.
 
 ## **Building the image:**
 The image takes around 50 min to build if it is on a brand new machine
-In the dockerfile there is a command at the end to copy the freesurfer license into the image. The freesurfer license file is in the folder with the dockerfile That will need to be changed depending on the machine
+In the dockerfile there is a command at the end to copy the freesurfer license into the image. The freesurfer license file is in the folder with the dockerfile. That will need to be changed depending on the machine
 
 ## **Starting the container:**
 An example command to start the container in a bash is
