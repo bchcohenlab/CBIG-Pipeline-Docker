@@ -21,8 +21,8 @@ ENV LANG="en_US.UTF-8" \
     LC_ALL="en_US.UTF-8" \
     ND_ENTRYPOINT="/neurodocker/startup.sh"
 RUN export ND_ENTRYPOINT="/neurodocker/startup.sh"
-Run apt-get update -qq
-Run apt-get install -y -q --no-install-recommends \
+RUN apt-get update -qq
+RUN apt-get install -y -q --no-install-recommends \
            apt-utils \
            bzip2 \
            ca-certificates \
@@ -35,7 +35,7 @@ Run apt-get install -y -q --no-install-recommends \
            gawk \
            locales \
            unzip
-Run apt-get clean \
+RUN apt-get clean \
     && rm -rf /var/lib/apt/lists/* \
     && sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen \
     && dpkg-reconfigure --frontend=noninteractive locales \
@@ -51,15 +51,11 @@ Run apt-get clean \
     && chmod -R 777 /neurodocker && chmod a+s /neurodocker \
     && sed -i '$isource /BIDS_to_CBIG_fMRI_Preproc2016/CBIG_2BP_docker_config.sh' $ND_ENTRYPOINT
 
-ENTRYPOINT ["/neurodocker/startup.sh"]
-CMD [“/BIDS_to_CBIG_fMRI_Preproc2016/CBIG_2BP_docker_config.sh \
-&& /BIDS_to_CBIG_fMRI_Preproc2016/BIDS_2BP_docker_CBIG_fMRI_preprocess.sh”]
-
 ENV ANTSPATH="/opt/ants-2.2.0" \
     PATH="/opt/ants-2.2.0:$PATH"
 RUN echo "Downloading ANTs ..."
-Run mkdir -p /opt/ants-2.2.0
-Run curl -fsSL --retry 5 https://dl.dropbox.com/s/2f4sui1z6lcgyek/ANTs-Linux-centos5_x86_64-v2.2.0-0740f91.tar.gz \
+RUN mkdir -p /opt/ants-2.2.0
+RUN curl -fsSL --retry 5 https://dl.dropbox.com/s/2f4sui1z6lcgyek/ANTs-Linux-centos5_x86_64-v2.2.0-0740f91.tar.gz \
     | tar -xz -C /opt/ants-2.2.0 --strip-components 1
 
 ENV PATH="/opt/afni-latest:$PATH" \
@@ -218,6 +214,11 @@ RUN mkdir -p /BIDS_input \
 
 RUN chmod +x /CBIG_compiled-for-MCR/setup_docker_CBIG.sh \
     && sed -i '$isource /CBIG_compiled-for-MCR/setup_docker_CBIG.sh' $ND_ENTRYPOINT
+
+ENTRYPOINT ["/neurodocker/startup.sh"]
+
+#CMD [“/BIDS_to_CBIG_fMRI_Preproc2016/CBIG_2BP_docker_config.sh \
+#&& /BIDS_to_CBIG_fMRI_Preproc2016/BIDS_2BP_docker_CBIG_fMRI_preprocess.sh”]
 
 COPY license.txt /opt/freesurfer-6.0.0/license.txt
 
