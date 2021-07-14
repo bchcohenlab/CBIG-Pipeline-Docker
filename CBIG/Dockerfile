@@ -177,7 +177,7 @@ RUN echo "Downloading Connectome Workbench" \
     && pushd /opt \
     && unzip -q workbench-linux64-v1.5.0.zip \
     && rm workbench-linux64-v1.5.0.zip \
-    && popd
+    && popd \
     && apt-get update -qq \
     && apt-get install -y -q --no-install-recommends connectome-workbench \
     && apt-get clean \
