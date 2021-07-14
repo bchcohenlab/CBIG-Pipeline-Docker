@@ -169,7 +169,8 @@ RUN apt-get update -qq \
          --exclude='freesurfer/subjects/fsaverage4' \
          --exclude='freesurfer/subjects/fsaverage_sym' \
          --exclude='freesurfer/trctrain' \
-    && sed -i '$isource "/opt/freesurfer-6.0.0/SetUpFreeSurfer.sh"' "$ND_ENTRYPOINT"
+    && sed -i '$isource "/opt/freesurfer-6.0.0/SetUpFreeSurfer.sh"' "$ND_ENTRYPOINT" \
+    && mkdir root/matlab && touch root/matlab/startup.m
 
 RUN echo "Downloading Connectome Workbench" \
     && wget -q -P /opt/ https://www.humanconnectome.org/storage/app/media/workbench/workbench-linux64-v1.5.0.zip \
