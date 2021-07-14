@@ -217,7 +217,7 @@ RUN mkdir -p /BIDS_input \
     && mkdir -p /extra_files
 
 RUN chmod +x /CBIG_compiled-for-MCR/setup_docker_CBIG.sh \
-    && bash /CBIG_compiled-for-MCR/setup_docker_CBIG.sh
+    && echo "source /CBIG_compiled-for-MCR/setup_docker_CBIG.sh" >> $ND_ENTRYPOINT
 
 COPY license.txt /opt/freesurfer-6.0.0/license.txt
 
