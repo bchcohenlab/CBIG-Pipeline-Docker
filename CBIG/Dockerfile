@@ -217,8 +217,8 @@ RUN chmod +x /CBIG_compiled-for-MCR/setup_docker_CBIG.sh \
 
 ENTRYPOINT ["/neurodocker/startup.sh"]
 
-#CMD [“/BIDS_to_CBIG_fMRI_Preproc2016/CBIG_2BP_docker_config.sh \
-#&& /BIDS_to_CBIG_fMRI_Preproc2016/BIDS_2BP_docker_CBIG_fMRI_preprocess.sh”]
+CMD [“/BIDS_to_CBIG_fMRI_Preproc2016/CBIG_2BP_docker_config.sh \
+&& /BIDS_to_CBIG_fMRI_Preproc2016/BIDS_2BP_docker_CBIG_fMRI_preprocess.sh”]
 
 COPY license.txt /opt/freesurfer-6.0.0/license.txt
 
