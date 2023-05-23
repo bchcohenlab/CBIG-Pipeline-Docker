@@ -2,8 +2,8 @@
 
 Implementing CBIG_fMRI_Preproc2016 in a docker 
 
-This dockerfile includes CBIG_fMRI_Preproc2016, ANTS 2.2.0, AFNI, fsl-5.0.10, freesurfer-6.0.0, matlabruntime 2021a, and Connectome Workbench.
-A full license for freesurfer is needed and must be put in the dockerfile. 
+This dockerfile includes CBIG_fMRI_Preproc2016, ANTS 2.2.0, AFNI, fsl-5.0.10, freesurfer-6.0.0, matlab 2022b, and Connectome Workbench.
+A full license for freesurfer and matlab is needed and must be put in the dockerfile. 
 
 ## **Building the image:**
 The image takes around 50 min to build if it is on a brand new machine
@@ -23,7 +23,7 @@ It also installs the directory for Connectome Workbench
 ## **Running CBIG:**
 An example command to run CBIG in bash is 
     
-    /BIDS_to_CBIG_fMRI_Preproc2016/BIDS_2BP_docker_CBIG_fMRI_preprocess.sh \
+    /BIDS_to_CBIG_fMRI_Preproc2016/BIDS_2BP_Thomas_docker_CBIG_fMRI_preprocess.sh \
     /BIDS_input \
     sub-0002 \
     /freesurfer_input \
