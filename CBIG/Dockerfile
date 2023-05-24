@@ -229,7 +229,10 @@ RUN chmod +x /BIDS_to_CBIG_fMRI_Preproc2016/BIDS_2BP_Thomas_docker_CBIG_fMRI_pre
 COPY license.txt /opt/freesurfer-6.0.0/license.txt
 
 COPY CBIG_preproc_native2mni.csh CBIG/stable_projects/preprocessing/CBIG_fMRI_Preproc2016/CBIG_preproc_native2mni.csh 
-RUN  chmod +x CBIG/stable_projects/preprocessing/CBIG_fMRI_Preproc2016/CBIG_preproc_native2mni.csh   
+RUN  chmod +x /CBIG/stable_projects/preprocessing/CBIG_fMRI_Preproc2016/CBIG_preproc_native2mni.csh   
+
+COPY SubcortCerebellumWhiteMask.GCA.t0.5_resampled.nii.gz /CBIG/data/templates/volume/FS_nonlinear_volumetric_space_4.5/SubcortCerebellumWhiteMask.GCA.t0.5_resampled.nii.gz
+RUN  chmod 777 /CBIG/data/templates/volume/FS_nonlinear_volumetric_space_4.5/SubcortCerebellumWhiteMask.GCA.t0.5_resampled.nii.gz
 
 
 RUN apt-get update && \
